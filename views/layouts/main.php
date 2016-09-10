@@ -1,13 +1,11 @@
 <?php
-
-/* @var $this \yii\web\View */
-/* @var $content string */
-
 use yii\helpers\Html;
 use yii\bootstrap\Nav;
 use yii\bootstrap\NavBar;
+use yii\helpers\Url;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
+use app\models\MenuItems;
 
 AppAsset::register($this);
 ?>
@@ -15,12 +13,16 @@ AppAsset::register($this);
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
 <head>
-    <meta charset="<?= Yii::$app->charset ?>">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <?= Html::csrfMetaTags() ?>
-    <title><?= Html::encode($this->title) ?></title>
-    <?php $this->head() ?>
-</head>
+<?= Html::tag('title', Html::encode($this->title)) ?>
+<?= $this->registerMetaTag(['charset' => Yii::$app->charset]) ?>
+<?= $this->registerMetaTag(['name' => 'author', 'content' => Yii::$app->name]) ?>
+<?= $this->registerMetaTag(['name' => 'description', 'content' => Html::encode(Yii::$app->params['description'])]) ?>
+<?= $this->registerMetaTag(['name' => 'robots', 'content' => 'noindex']) ?>
+<?= $this->registerMetaTag(['name' => 'viewport', 'content' => 'width=device-width, initial-scale=1']) ?>
+<?= $this->registerLinkTag(['rel' => 'canonical', 'href' => Url::to(Url::current(), true)]) ?>
+<?= $this->registerLinkTag(['rel' => 'icon', 'sizes' => '16x16 32x32 48x48 64x64', 'type' => 'image/x-icon', 'href' => Url::to('@assetsUrl/images/'.Yii::$app->params['favicon'])]) ?>
+<?= Html::csrfMetaTags() ?>
+<?= $this->head() ?></head>
 <body>
 <?php $this->beginBody() ?>
 
@@ -35,23 +37,7 @@ AppAsset::register($this);
     ]);
     echo Nav::widget([
         'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => [
-            ['label' => 'Home', 'url' => ['/site/index']],
-            ['label' => 'About', 'url' => ['/site/about']],
-            ['label' => 'Contact', 'url' => ['/site/contact']],
-            Yii::$app->user->isGuest ? (
-                ['label' => 'Login', 'url' => ['/site/login']]
-            ) : (
-                '<li>'
-                . Html::beginForm(['/site/logout'], 'post', ['class' => 'navbar-form'])
-                . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->username . ')',
-                    ['class' => 'btn btn-link']
-                )
-                . Html::endForm()
-                . '</li>'
-            )
-        ],
+        'items' => MenuItems::menuArray(),
     ]);
     NavBar::end();
     ?>

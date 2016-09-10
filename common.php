@@ -18,10 +18,6 @@ return [
 				'yii\bootstrap\BootstrapPluginAsset' => [
 					'js' => [YII_ENV_DEV ? 'js/bootstrap.js' : 'js/bootstrap.min.js'],
 				],
-				'yii\jui\JuiAsset' => [
-					'css' => [YII_ENV_DEV ? 'themes/smoothness/jquery-ui.css' : 'themes/smoothness/jquery-ui.min.css'],
-					'js' => [YII_ENV_DEV ? 'jquery-ui.js' : 'jquery-ui.min.js'],
-				],
 				'yii\web\JqueryAsset' => [
 					'js' => [YII_ENV_DEV ? 'jquery.js' : 'jquery.min.js'],
 				],	
@@ -69,14 +65,6 @@ return [
 		],
 		'mailer' => [
 			'class' => 'yii\swiftmailer\Mailer',
-#			'transport' => [
-#				'class' => 'Swift_SmtpTransport',
-#				'host' => $secrets['email']['host'],
-#				'username' => $secrets['email']['user'],
-#				'password' => $secrets['email']['pass'],
-#				'port' => '587',
-#				'encryption' => 'tls',
-#			],
 		],
 		'pdf' => [
 			'class' => \kartik\mpdf\Pdf::classname(),
