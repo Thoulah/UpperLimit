@@ -2,6 +2,7 @@
 namespace app\models;
 use Yii;
 use yii\helpers\Html;
+use yii\helpers\Url;
 
 class MenuItems
 {
@@ -14,10 +15,20 @@ class MenuItems
 			['label' => Yii::t('menu', 'About'), 'url' => ['/site/about']],
 			['label' => Yii::t('menu', 'Contact'), 'url' => ['/site/contact']],
 			$isGuest ?
-				['label' => Yii::t('menu', 'Login'), 'url' => ['/user/security/login']]
+				['label' => Yii::t('user', 'Login'), 'url' => ['/user/security/login']]
 			:
-				['label' => Yii::t('menu', 'Logout {username}', ['username' => Yii::$app->user->identity->username]), 'url' => ['/user/security/logout'], 'linkOptions' => ['data-method' => 'post']]
+				['label' => Yii::t('user', 'Hello').' '.$username, 'url' => null,
+					'items' => [
+						['label' => Yii::t('user', 'Profile'), 'url' => ['/user/settings/profile']],
+						['label' => Yii::t('user', 'Account'), 'url' => ['/user/settings/account']],
+#						['label' => Yii::t('user', 'Networks'), 'url' => ['/user/settings/networks']],
+						'<li class="divider"></li>',
+						['label' => Yii::t('user', 'Logout'), 'url' => ['/user/security/logout'], 'linkOptions' => ['data-method' => 'post']],
+					],
+				]
 			,
+			['label' => Html::img('@assetsUrl/images/lang-de.png', ['alt' => 'Deutsch']), 'url' => '@siteDE'.Url::to(Url::current()), 'visible' => (Yii::$app->language != 'de')],
+			['label' => Html::img('@assetsUrl/images/lang-en.png', ['alt' => 'English']), 'url' => '@siteEN'.Url::to(Url::current()), 'visible' => (Yii::$app->language != 'en')],
 		];
 
 		return $menuItems;

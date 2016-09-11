@@ -26,14 +26,6 @@ $config = [
 		'user' => [
 			'class' => 'dektrium\user\Module',
 			'admins' => ['admin'],
-			'controllerMap' => [
-#				'profile' => 'app\controllers\user\ProfileController',
-#				'settings' => 'app\controllers\user\SettingsController',
-			],
-			'modelMap' => [
-#				'Profile' => 'app\models\user\Profile',
-#				'RegistrationForm' => 'app\models\user\RegistrationForm',
-			],
 			'urlRules' => [
 				'profile/<username:\w+>'						=> 'profile/show',
 				'recenttracks/<username:\w+>'					=> 'profile/recenttracks',

@@ -4,6 +4,8 @@ $secrets = require(__DIR__ . '/secrets.php');
 return [
 	'aliases' => [
 		'@app' => __DIR__,
+		'@siteDE' => 'http://www.upperlimit.de',
+		'@siteEN' => 'http://www.upperlimit.eu',
 	],
 	'basePath' => __DIR__,
 	'bootstrap' => ['log'],
