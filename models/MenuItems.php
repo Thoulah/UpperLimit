@@ -1,6 +1,7 @@
 <?php
 namespace app\models;
 use Yii;
+use yii\helpers\Html;
 
 class MenuItems
 {
@@ -10,20 +11,12 @@ class MenuItems
 		$username = $isGuest ? '' : Yii::$app->user->identity->username;
 
 		$menuItems = [
-			['label' => 'About', 'url' => ['/site/about']],
-			['label' => 'Contact', 'url' => ['/site/contact']],
+			['label' => Yii::t('menu', 'About'), 'url' => ['/site/about']],
+			['label' => Yii::t('menu', 'Contact'), 'url' => ['/site/contact']],
 			$isGuest ?
-				['label' => 'Login', 'url' => ['/site/login']]
-			: (
-                '<li>'
-                . Html::beginForm(['/site/logout'], 'post', ['class' => 'navbar-form'])
-                . Html::submitButton(
-                    'Logout (' . Yii::$app->user->identity->username . ')',
-                    ['class' => 'btn btn-link']
-                )
-                . Html::endForm()
-                . '</li>'
-            )
+				['label' => Yii::t('menu', 'Login'), 'url' => ['/user/security/login']]
+			:
+				['label' => Yii::t('menu', 'Logout {username}', ['username' => Yii::$app->user->identity->username]), 'url' => ['/user/security/logout'], 'linkOptions' => ['data-method' => 'post']]
 			,
 		];
 

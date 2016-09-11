@@ -38,6 +38,13 @@ return [
 			'cacheFileSuffix' => '.ser',
 			'directoryLevel' => 0,
 		],
+		'i18n' => [
+			'translations' => [
+				'menu' => [
+					'class' => 'yii\i18n\PhpMessageSource',
+				],
+			],
+		],
 		'db' => [
 			'class' => 'yii\db\Connection',
 			'dsn' => 'mysql:host='.$secrets['MySQL']['host'].';dbname='.$secrets['MySQL']['db'],
