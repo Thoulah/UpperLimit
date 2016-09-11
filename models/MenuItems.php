@@ -12,8 +12,8 @@ class MenuItems
 		$username = $isGuest ? '' : Yii::$app->user->identity->username;
 
 		$menuItems = [
-			['label' => Yii::t('menu', 'About'), 'url' => ['/site/about']],
-			['label' => Yii::t('menu', 'Contact'), 'url' => ['/site/contact']],
+			['label' => Yii::t('ul-menu', 'About'), 'url' => ['/site/about']],
+			['label' => Yii::t('ul-menu', 'Contact'), 'url' => ['/site/contact']],
 			$isGuest ?
 				['label' => Yii::t('user', 'Login'), 'url' => ['/user/security/login']]
 			:

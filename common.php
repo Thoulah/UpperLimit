@@ -42,7 +42,7 @@ return [
 		],
 		'i18n' => [
 			'translations' => [
-				'menu' => [
+				'ul-*' => [
 					'class' => 'yii\i18n\PhpMessageSource',
 				],
 			],
