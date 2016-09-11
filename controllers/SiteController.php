@@ -23,9 +23,4 @@ class SiteController extends Controller
 			'model' => $model,
 		]);
 	}
-
-	public function actionAbout()
-	{
-		return $this->render('about');
-	}
 }

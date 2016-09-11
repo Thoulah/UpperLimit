@@ -17,11 +17,6 @@ $this->params['breadcrumbs'][] = $this->title;
 
 	<?php else: ?>
 
-		<p>
-			If you have business inquiries or other questions, please fill out the following form to contact us.
-			Thank you.
-		</p>
-
 		<div class="row">
 			<div class="col-lg-5">
 
