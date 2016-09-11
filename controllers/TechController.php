@@ -4,11 +4,8 @@ use Yii;
 use app\models\MenuItems;
 use yii\base\Object;
 use yii\captcha\CaptchaAction;
-use yii\db\Query;
-use yii\filters\AccessControl;
 use yii\filters\HttpCache;
 use yii\web\Controller;
-use yii\web\NotFoundHttpException;
 use yii\web\Response;
 
 class TechController extends Controller
