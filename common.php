@@ -25,10 +25,7 @@ return [
 				],	
 			],
 			'converter' => [
-				'class' => 'cakebake\lessphp\AssetConverter',
-				'cacheSuffix' => false,
-				'compress' => true,
-				'useCache' => false,
+				'class' => 'yii\web\AssetConverter',
 			],
 			'linkAssets' => true,
 		],
@@ -53,7 +50,7 @@ return [
 			'username' => $secrets['MySQL']['user'],
 			'password' => $secrets['MySQL']['pass'],
 			'charset' => 'utf8',
-			'tablePrefix' => 'tbl_',
+			'tablePrefix' => 'upperlimit_',
 
 			'enableSchemaCache' => true,
 			'schemaCache' => 'fileCache',
@@ -69,6 +66,7 @@ return [
 				[
 					'class' => 'yii\log\DbTarget',
 					'levels' => ['error', 'warning'],
+					'logTable' => 'x_log',
 				],
 			],
 		],

@@ -13,6 +13,7 @@ $config = [
 		],
 		'session' => [
 			'class' => 'yii\web\DbSession',
+			'sessionTable' => 'x_session',
 		],
 		'view' => [
 			'theme' => [
