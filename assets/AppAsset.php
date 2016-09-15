@@ -5,10 +5,10 @@ use yii\web\AssetBundle;
 
 class AppAsset extends AssetBundle
 {
-	public $sourcePath = '@app/static/css';
+	public $sourcePath = '@app/assets/src';
 
 	public $css = [
-		'site.less',
+		'css/site.scss',
 	];
 
 	public $js = [

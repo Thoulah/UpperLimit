@@ -22,10 +22,13 @@ return [
 				],
 				'yii\web\JqueryAsset' => [
 					'js' => [YII_ENV_DEV ? 'jquery.js' : 'jquery.min.js'],
-				],	
+				],
 			],
 			'converter' => [
 				'class' => 'yii\web\AssetConverter',
+				'commands' => [
+					'scss' => ['css', 'sass {from} {to} -C --sourcemap=none -t compressed -I ../../../vendor/bower/bootstrap-sass/assets/stylesheets'],
+				],
 			],
 			'linkAssets' => true,
 		],
@@ -94,5 +97,5 @@ return [
 	'params' => require(__DIR__ . '/params.php'),
 	'runtimePath' => __DIR__ . '/../yii-runtime/me.mr42.www',
 	'timeZone' => 'Europe/Berlin',
-	'vendorPath' => __DIR__ . '/../yii2/vendor',
+	'vendorPath' => __DIR__ . '/../vendor',
 ];
