@@ -3,6 +3,7 @@
 html,
 body {
 	height: 100%;
+	text-align: justify;
 }
 
 .wrap {
@@ -16,6 +17,16 @@ body {
 	}
 }
 
+li.flag a {
+	> img {
+		filter: grayscale(75%);
+	}
+
+	&:hover > img {
+		filter: grayscale(0%);
+	}
+}
+
 .intro {
 	text-align: center;
 	background-color: transparent;
@@ -24,17 +35,6 @@ body {
 		font-size: 21px;
 		padding: 14px 24px;
 	}
-}
-
-.not-set {
-	color: #c55;
-	font-style: italic;
-}
-
-.hint-block {
-	display: block;
-	margin-top: 5px;
-	color: #999;
 }
 
 form {
@@ -58,12 +58,4 @@ form {
 	background-color: #f5f5f5;
 	border-top: 1px solid #ddd;
 	padding-top: 10px;
-}
-
-.error-summary {
-	color: #a94442;
-	background: #fdf7f7;
-	border-left: 3px solid #eed3d7;
-	padding: 10px 20px;
-	margin: 0 0 15px 0;
 }

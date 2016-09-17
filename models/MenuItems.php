@@ -26,8 +26,8 @@ class MenuItems
 					],
 				]
 			,
-			['label' => Html::img(Yii::$app->assetManager->baseUrl.'/images/lang-de.png', ['alt' => 'Deutsch']), 'url' => '@siteDE'.Url::to(Url::current()), 'visible' => (Yii::$app->language != 'de')],
-			['label' => Html::img(Yii::$app->assetManager->baseUrl.'/images/lang-en.png', ['alt' => 'English']), 'url' => '@siteEN'.Url::to(Url::current()), 'visible' => (Yii::$app->language != 'en')],
+			['label' => Html::img(Yii::$app->assetManager->baseUrl.'/images/lang-de.png', ['alt' => 'Deutsch']), 'url' => '@siteDE'.Url::to(Url::current()), 'options' => ['class' => 'flag'], 'visible' => (Yii::$app->language != 'de')],
+			['label' => Html::img(Yii::$app->assetManager->baseUrl.'/images/lang-en.png', ['alt' => 'English']), 'url' => '@siteEN'.Url::to(Url::current()), 'options' => ['class' => 'flag'], 'visible' => (Yii::$app->language != 'en')],
 		];
 
 		return $menuItems;
