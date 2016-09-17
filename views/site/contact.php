@@ -12,7 +12,7 @@ $this->params['breadcrumbs'][] = $this->title;
 	<?php if (Yii::$app->session->hasFlash('contactFormSubmitted')): ?>
 
 		<div class="alert alert-success">
-			Thank you for contacting us. We will respond to you as soon as possible.
+			<?= Yii::t('ul-general', 'Thank you for contacting us. We will respond to you as soon as possible.') ?>
 		</div>
 
 	<?php else: ?>
@@ -32,6 +32,7 @@ $this->params['breadcrumbs'][] = $this->title;
 
 					<?= $form->field($model, 'verifyCode')->widget(Captcha::className(), [
 						'captchaAction' => '/tech/captcha',
+						'imageOptions' => ['alt' => 'CAPTCHA image', 'class' => 'captcha'],
 						'template' => '<div class="row"><div class="col-lg-3">{image}</div><div class="col-lg-6">{input}</div></div>',
 					]) ?>
 

@@ -3,7 +3,6 @@ $secrets = require(__DIR__ . '/secrets.php');
 
 return [
 	'aliases' => [
-		'@app' => __DIR__,
 		'@siteDE' => 'http://www.upperlimit.de',
 		'@siteEN' => 'http://www.upperlimit.eu',
 	],
@@ -11,8 +10,6 @@ return [
 	'bootstrap' => ['log'],
 	'components' => [
 		'assetManager' => [
-			'basePath' => '@assetsPath',
-			'baseUrl' => '@assetsUrl',
 			'bundles' => [
 				'yii\bootstrap\BootstrapAsset' => [
 					'css' => [],
@@ -37,13 +34,13 @@ return [
 		],
 		'fileCache' => [
 			'class' => 'yii\caching\FileCache',
-			'cacheFileSuffix' => '.ser',
 			'directoryLevel' => 0,
 		],
 		'i18n' => [
 			'translations' => [
 				'ul-*' => [
 					'class' => 'yii\i18n\PhpMessageSource',
+					'sourceLanguage' => 'en',
 				],
 			],
 		],
@@ -95,7 +92,7 @@ return [
 	],
 	'name' => 'Upper Limit',
 	'params' => require(__DIR__ . '/params.php'),
-	'runtimePath' => __DIR__ . '/../yii-runtime/me.mr42.www',
+	'runtimePath' => __DIR__ . '/../yii-runtime/upperlimit.www',
 	'timeZone' => 'Europe/Berlin',
 	'vendorPath' => __DIR__ . '/../vendor',
 ];
