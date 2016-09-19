@@ -1,11 +1,21 @@
 <?php
 namespace app\controllers;
 use Yii;
-use yii\web\Controller;
 use app\models\site\Contact;
+use yii\web\ErrorAction;
+use yii\web\Controller;
 
 class SiteController extends Controller
 {
+	public function actions()
+	{
+		return [
+			'error' => [
+				'class' => ErrorAction::className(),
+			],
+		];
+	}
+
 	public function actionIndex()
 	{
 		return $this->render('index');

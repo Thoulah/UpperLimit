@@ -38,7 +38,7 @@ return [
 		],
 		'i18n' => [
 			'translations' => [
-				'ul-*' => [
+				'*' => [
 					'class' => 'yii\i18n\PhpMessageSource',
 					'sourceLanguage' => 'en',
 				],
@@ -79,7 +79,6 @@ return [
 		],
 		'urlManager' => [
 			'enablePrettyUrl' => true,
-			'enableStrictParsing' => true,
 			'normalizer' => [
 				'class' => 'yii\web\UrlNormalizer',
 			],

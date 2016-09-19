@@ -25,9 +25,9 @@ class Contact extends Model
 		return [
 			'name' => Yii::t('user', 'Name'),
 			'email' => Yii::t('user', 'Email'),
-			'subject' => Yii::t('ul-general', 'Subject'),
-			'body' => Yii::t('ul-general', 'Message'),
-			'verifyCode' => Yii::t('ul-general', 'Verification Code'),
+			'subject' => Yii::t('general', 'Subject'),
+			'body' => Yii::t('general', 'Message'),
+			'verifyCode' => Yii::t('general', 'Verification Code'),
 		];
 	}
 

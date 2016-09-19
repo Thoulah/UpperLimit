@@ -17,12 +17,5 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
-    'A music project' => 'Ein Musikprojekt',
-    'Message' => 'Nachricht',
-    'Subject' => 'Betreff',
-    'Submit' => 'Senden',
-    'Thank you for contacting us. We will respond to you as soon as possible.' => 'Danke, dass Sie uns kontaktiert haben. Wir werden so schnell wie möglich antworten.',
-    'The above error occurred while the Web server was processing your request.' => 'Die Anfrage kann nicht beantwortet werden, da im Server ein interner Fehler aufgetreten ist.',
     'This website is temporarily offline for maintenance.' => 'Diese Website ist wegen Wartung vorübergehend offline.',
-    'Verification Code' => 'Prüfcode',
 ];
