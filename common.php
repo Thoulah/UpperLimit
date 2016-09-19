@@ -79,6 +79,10 @@ return [
 		],
 		'urlManager' => [
 			'enablePrettyUrl' => true,
+			'enableStrictParsing' => true,
+			'normalizer' => [
+				'class' => 'yii\web\UrlNormalizer',
+			],
 			'showScriptName' => false,
 			'rules' => [
 				''																	=> 'site/index',

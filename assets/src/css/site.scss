@@ -59,3 +59,9 @@ form {
 	border-top: 1px solid #ddd;
 	padding-top: 10px;
 }
+
+@media (min-width: 768px) {
+	ul.nav li.dropdown:hover ul.dropdown-menu {
+		display: block;
+	}
+}
