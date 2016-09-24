@@ -24,7 +24,7 @@ return [
 			'converter' => [
 				'class' => 'yii\web\AssetConverter',
 				'commands' => [
-					'scss' => ['css', 'sass {from} {to} -C --sourcemap=none -t compressed -I ../../../vendor/bower/bootstrap-sass/assets/stylesheets'],
+					'scss' => ['css', 'sass {from} {to} -C --sourcemap=none -t compressed -I '.realpath(__DIR__.'/../vendor/bower/bootstrap-sass/assets/stylesheets')],
 				],
 			],
 			'linkAssets' => true,
@@ -85,10 +85,9 @@ return [
 			'showScriptName' => false,
 			'rules' => [
 				''																	=> 'site/index',
-				'favicon.ico'													=> 'tech/faviconico',
-				'robots.txt'													=> 'tech/robotstxt',
-				'sitemap.xml'													=> 'tech/sitemapxml',
-				'feed/rss'														=> 'tech/rss',
+				'favicon.ico'													=> 'site/faviconico',
+				'robots.txt'													=> 'site/robotstxt',
+				'sitemap.xml'													=> 'site/sitemapxml',
 				'<alias:\w+>'													=> 'site/<alias>',
 			],
 		],

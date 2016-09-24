@@ -5,11 +5,14 @@ use yii\bootstrap\NavBar;
 use yii\helpers\Url;
 use yii\widgets\Breadcrumbs;
 use app\assets\AppAsset;
+use app\assets\ImagesAsset;
 use app\models\MenuItems;
 
 AppAsset::register($this);
+ImagesAsset::register($this);
+
+$this->beginPage();
 ?>
-<?php $this->beginPage() ?>
 <!DOCTYPE html>
 <html lang="<?= Yii::$app->language ?>">
 <head>
@@ -19,7 +22,7 @@ AppAsset::register($this);
 <?= $this->registerMetaTag(['name' => 'description', 'content' => Html::encode(Yii::t('general', 'A music project'))]) ?>
 <?= $this->registerMetaTag(['name' => 'viewport', 'content' => 'width=device-width, initial-scale=1']) ?>
 <?= $this->registerLinkTag(['rel' => 'canonical', 'href' => Url::to(Url::current(), true)]) ?>
-<?= $this->registerLinkTag(['rel' => 'icon', 'sizes' => '16x16 32x32 48x48 64x64', 'type' => 'image/x-icon', 'href' => Yii::$app->assetManager->baseUrl.'/images/'.Yii::$app->params['favicon']]) ?>
+<?= $this->registerLinkTag(['rel' => 'icon', 'sizes' => '16x16 32x32 48x48 64x64', 'type' => 'image/x-icon', 'href' => Yii::$app->assetManager->getBundle('app\assets\ImagesAsset')->baseUrl.'/favicon.ico']) ?>
 <?= Html::csrfMetaTags() ?>
 <?= $this->head() ?></head>
 <body>

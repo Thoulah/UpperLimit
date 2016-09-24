@@ -16,7 +16,7 @@ class Contact extends Model
 		return [
 			[['name', 'email', 'subject', 'body', 'verifyCode'], 'required'],
 			['email', 'email'],
-			['verifyCode', 'captcha', 'captchaAction'=> 'tech/captcha'],
+			['verifyCode', 'captcha'],
 		];
 	}
 

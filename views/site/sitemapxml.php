@@ -1,5 +1,5 @@
 <?php
-use app\models\tech\Sitemap;
+use app\models\site\Sitemap;
 use yii\base\View;
 use yii\helpers\Url;
 
