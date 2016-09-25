@@ -3,7 +3,7 @@ $secrets = require(__DIR__ . '/secrets.php');
 
 $config = [
 	'id' => 'upperlimit',
-#	'catchAll' => ['tech/offline'],
+#	'catchAll' => ['site/offline'],
 	'components' => [
 		'errorHandler' => [
 			'errorAction' => 'site/error',

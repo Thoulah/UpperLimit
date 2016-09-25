@@ -29,36 +29,40 @@ $this->beginPage();
 <?php $this->beginBody() ?>
 
 <div class="wrap">
-    <?php
-    NavBar::begin([
-        'brandLabel' => Yii::$app->name,
-        'brandUrl' => Yii::$app->homeUrl,
-        'options' => [
-            'class' => 'navbar-inverse navbar-fixed-top',
-        ],
-        'screenReaderToggleText' => Yii::t('general', 'Toggle navigation'),
-    ]);
-    echo Nav::widget([
-        'options' => ['class' => 'navbar-nav navbar-right'],
-        'items' => MenuItems::menuArray(),
-        'encodeLabels' => false,
-    ]);
-    NavBar::end();
-    ?>
+	<?php
+	NavBar::begin([
+		'brandLabel' => Yii::$app->name,
+		'brandUrl' => Yii::$app->homeUrl,
+		'options' => [
+			'class' => 'navbar-inverse navbar-fixed-top',
+		],
+		'screenReaderToggleText' => Yii::t('general', 'Toggle navigation'),
+	]);
 
-    <div class="container">
-        <?= Breadcrumbs::widget([
-            'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
-        ]) ?>
-        <?= $content ?>
-    </div>
+	if (Yii::$app->controller->id !== 'site' || Yii::$app->controller->action->id !== 'offline') {
+		echo Nav::widget([
+			'options' => ['class' => 'navbar-nav navbar-right'],
+			'items' => MenuItems::menuArray(),
+			'encodeLabels' => false,
+		]);
+	}
+
+	NavBar::end();
+	?>
+
+	<div class="container">
+		<?= Breadcrumbs::widget([
+			'links' => isset($this->params['breadcrumbs']) ? $this->params['breadcrumbs'] : [],
+		]) ?>
+		<?= $content ?>
+	</div>
 </div>
 
 <footer class="footer">
-    <div class="container">
-        <p class="pull-left">&copy; <?= date('Y') ?> <?= Yii::$app->name ?></p>
-        <p class="pull-right"></p>
-    </div>
+	<div class="container">
+		<p class="pull-left">&copy; <?= date('Y') ?> <?= Yii::$app->name ?></p>
+		<p class="pull-right"></p>
+	</div>
 </footer>
 
 <?php $this->endBody() ?>

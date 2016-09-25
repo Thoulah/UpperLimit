@@ -17,5 +17,6 @@
  * NOTE: this file must be saved in UTF-8 encoding.
  */
 return [
+    'Offline' => '',
     'This website is temporarily offline for maintenance.' => 'Diese Website ist wegen Wartung vorübergehend offline.',
 ];

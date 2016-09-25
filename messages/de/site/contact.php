@@ -18,5 +18,5 @@
  */
 return [
     'Contact' => 'Kontakt',
-    'Thank you for contacting us. We will respond to you as soon as possible.' => 'Danke, dass Sie uns kontaktiert haben. Wir werden so schnell wie möglich antworten.',
+    'Thank you for contacting {0}. We will respond to you as soon as possible.' => 'Danke, dass Sie {0} kontaktiert haben. Wir werden so schnell wie möglich antworten.',
 ];

@@ -12,7 +12,7 @@ $this->params['breadcrumbs'][] = $this->title;
 	<?php if (Yii::$app->session->hasFlash('contactFormSubmitted')): ?>
 
 		<div class="alert alert-success">
-			<?= Yii::t('site/contact', 'Thank you for contacting us. We will respond to you as soon as possible.') ?>
+			<?= Yii::t('site/contact', 'Thank you for contacting {0}. We will respond to you as soon as possible.', ['0' => Yii::$app->name]) ?>
 		</div>
 
 	<?php else: ?>

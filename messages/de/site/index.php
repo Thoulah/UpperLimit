@@ -18,5 +18,5 @@
  */
 return [
     'This website is not ready yet. Please come back later.' => 'Diese Website ist noch nicht fertig. Bitte schauen sie später wieder.',
-    'Welcome to {appname}!' => 'Willkommen bei {appname}!',
+    'Welcome to {0}!' => 'Willkommen bei {0}!',
 ];

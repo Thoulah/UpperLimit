@@ -31,17 +31,15 @@ class Contact extends Model
 		];
 	}
 
-	public function contact($email)
+	public function contact()
 	{
 		if ($this->validate()) {
-			Yii::$app->mailer->compose()
-				->setTo($email)
+			return Yii::$app->mailer->compose()
+				->setTo(Yii::$app->params['adminEmail'])
 				->setFrom([$this->email => $this->name])
 				->setSubject($this->subject)
 				->setTextBody($this->body)
 				->send();
-
-			return true;
 		}
 		return false;
 	}
