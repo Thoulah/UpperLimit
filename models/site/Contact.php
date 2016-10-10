@@ -3,16 +3,14 @@ namespace app\models\site;
 use Yii;
 use yii\base\Model;
 
-class Contact extends Model
-{
+class Contact extends Model {
 	public $name;
 	public $email;
 	public $subject;
 	public $body;
 	public $verifyCode;
 
-	public function rules()
-	{
+	public function rules() {
 		return [
 			[['name', 'email', 'subject', 'body', 'verifyCode'], 'required'],
 			['email', 'email'],
@@ -20,8 +18,7 @@ class Contact extends Model
 		];
 	}
 
-	public function attributeLabels()
-	{
+	public function attributeLabels() {
 		return [
 			'name' => Yii::t('user', 'Name'),
 			'email' => Yii::t('user', 'Email'),
@@ -31,8 +28,7 @@ class Contact extends Model
 		];
 	}
 
-	public function contact()
-	{
+	public function contact() {
 		if ($this->validate()) {
 			return Yii::$app->mailer->compose()
 				->setTo(Yii::$app->params['adminEmail'])

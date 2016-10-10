@@ -1,6 +1,5 @@
 <?php
-use yii\helpers\Html;
-use yii\bootstrap\ActiveForm;
+use yii\bootstrap\{ActiveForm, Html};
 use yii\captcha\Captcha;
 
 $this->title = Yii::t('site/contact', 'Contact');

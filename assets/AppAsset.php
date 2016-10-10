@@ -1,10 +1,8 @@
 <?php
 namespace app\assets;
 use Yii;
-use yii\web\AssetBundle;
 
-class AppAsset extends AssetBundle
-{
+class AppAsset extends \yii\web\AssetBundle {
 	public $sourcePath = '@app/assets/src/css';
 
 	public $css = [

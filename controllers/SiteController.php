@@ -6,14 +6,10 @@ use app\models\site\Contact;
 use yii\base\Object;
 use yii\captcha\CaptchaAction;
 use yii\filters\HttpCache;
-use yii\web\Controller;
-use yii\web\ErrorAction;
-use yii\web\Response;
+use yii\web\{Controller, ErrorAction, Response};
 
-class SiteController extends Controller
-{
-	public function actions()
-	{
+class SiteController extends Controller {
+	public function actions() {
 		return [
 			'captcha' => [
 				'class' => CaptchaAction::className(),
@@ -28,8 +24,7 @@ class SiteController extends Controller
 		];
 	}
 
-	public function behaviors()
-	{
+	public function behaviors() {
 		return [
 			[
 				'class' => HttpCache::className(),
@@ -48,44 +43,39 @@ class SiteController extends Controller
 		];
 	}
 
-	public function actionIndex()
-	{
+	public function actionIndex() {
 		return $this->render('index');
 	}
 
-	public function actionContact()
-	{
+	public function actionContact() {
 		$model = new Contact();
 		if ($model->load(Yii::$app->request->post()) && $model->contact()) {
 			Yii::$app->session->setFlash('contactFormSubmitted');
 			return $this->refresh();
 		}
+
 		return $this->render('contact', [
 			'model' => $model,
 		]);
 	}
 
-	public function actionFaviconico()
-	{
+	public function actionFaviconico() {
 		Yii::$app->response->sendFile(Yii::$app->assetManager->getBundle('app\assets\ImagesAsset')->basePath.'/favicon.ico', 'favicon.ico', ['inline' => true]);
 	}
 
-	public function actionOffline()
-	{
+	public function actionOffline() {
 		Yii::$app->response->statusCode = 503;
 		Yii::$app->response->headers->add('Retry-After', 900);
 		return $this->render('offline');
 	}
 
-	public function actionRobotstxt()
-	{
+	public function actionRobotstxt() {
 		Yii::$app->response->format = Response::FORMAT_RAW;
 		Yii::$app->response->headers->add('Content-Type', 'text/plain');
 		return $this->renderPartial('robotstxt');
 	}
 
-	public function actionSitemapxml()
-	{
+	public function actionSitemapxml() {
 		Yii::$app->response->format = Response::FORMAT_RAW;
 		Yii::$app->response->headers->add('Content-Type', 'application/xml');
 
