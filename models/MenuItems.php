@@ -8,14 +8,13 @@ class MenuItems {
 	public static function menuArray() {
 		$isGuest = (Yii::$app->controller->action->id == 'sitemapxml') ? true : Yii::$app->user->isGuest;
 		$isAdmin = !$isGuest && Yii::$app->user->identity->isAdmin;
-		$username = $isGuest ? '' : Yii::$app->user->identity->username;
 
 		$menuItems = [
 			['label' => Html::icon('home').Yii::t('yii', 'Home'), 'url' => ['/site/index']],
 			['label' => Html::icon('pencil').Yii::t('site/contact', 'Contact'), 'url' => ['/site/contact']],
 			$isGuest
 				? ['label' => Html::icon('log-in').Yii::t('user', 'Login'), 'url' => ['/user/security/login']]
-				: ['label' => Html::icon('user').Yii::t('user', 'Hello').' '.$username, 'url' => null,
+				: ['label' => Html::icon('user').Yii::t('user', 'Hello').' '.Yii::$app->user->identity->username, 'url' => null,
 					'items' => [
 						['label' => Yii::t('user', 'Profile'), 'url' => ['/user/settings/profile']],
 						['label' => Yii::t('user', 'Account'), 'url' => ['/user/settings/account']],

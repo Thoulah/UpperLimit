@@ -94,7 +94,7 @@ return [
 	],
 	'name' => 'Upper Limit',
 	'params' => require(__DIR__ . '/params.php'),
-	'runtimePath' => __DIR__ . '/../runtime/upperlimit',
+	'runtimePath' => __DIR__ . '/../../.cache/yii/upperlimit',
 	'timeZone' => 'Europe/Berlin',
 	'vendorPath' => __DIR__ . '/../vendor',
 ];
