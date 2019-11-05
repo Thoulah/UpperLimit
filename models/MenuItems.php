@@ -1,7 +1,7 @@
 <?php
 namespace app\models;
 use Yii;
-use yii\bootstrap\Html;
+use yii\bootstrap4\Html;
 use yii\helpers\Url;
 
 class MenuItems {
@@ -10,11 +10,12 @@ class MenuItems {
 		$isAdmin = !$isGuest && Yii::$app->user->identity->isAdmin;
 
 		$menuItems = [
-			['label' => Html::icon('home').Yii::t('yii', 'Home'), 'url' => ['/site/index']],
-			['label' => Html::icon('pencil').Yii::t('site/contact', 'Contact'), 'url' => ['/site/contact']],
+			['label' => Yii::$app->icon->name('home')->class('mr-1').Yii::t('yii', 'Home'), 'url' => ['/site/index']],
+			['label' => Yii::$app->icon->name('music')->class('mr-1').Yii::t('site/music', 'Music'), 'url' => ['/site/music']],
+			['label' => Yii::$app->icon->name('pencil-alt')->class('mr-1').Yii::t('site/contact', 'Contact'), 'url' => ['/site/contact']],
 			$isGuest
-				? ['label' => Html::icon('log-in').Yii::t('user', 'Login'), 'url' => ['/user/security/login']]
-				: ['label' => Html::icon('user').Yii::t('user', 'Hello').' '.Yii::$app->user->identity->username, 'url' => null,
+				? ['label' => Yii::$app->icon->name('sign-in-alt')->class('mr-1').Yii::t('user', 'Login'), 'url' => ['/user/security/login'], 'visible' => 1]
+				: ['label' => Yii::$app->icon->name('user')->class('mr-1').Yii::t('user', 'Hello').' '.Yii::$app->user->identity->username, 'url' => null,
 					'items' => [
 						['label' => Yii::t('user', 'Profile'), 'url' => ['/user/settings/profile']],
 						['label' => Yii::t('user', 'Account'), 'url' => ['/user/settings/account']],

@@ -1,5 +1,5 @@
 <?php
-use yii\bootstrap\Html;
+use yii\bootstrap4\Html;
 
 $this->title = Yii::t('site/offline', 'Offline');
 

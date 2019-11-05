@@ -1,9 +1,18 @@
 @import "bootstrap.scss";
 
+@mixin user-select($select) {
+	  -ms-user-select: $select;
+		  user-select: $select;
+}
+
 html,
 body {
-	height: 100%;
+	max-height: 100%;
 	text-align: justify;
+}
+
+body > .container {
+	padding: 4.5rem 15px 2rem;
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -29,6 +38,26 @@ h1, h2, h3, h4, h5, h6 {
 	content: '\00a0';
 	font-family: $font-family-base;
 }
+
+svg.fa {
+	display: inline-block;
+	font-size: inherit;
+	height: 1em;
+	overflow: visible;
+	vertical-align: -.125em;
+
+	@for $i from 1 through 20 {
+		&.w-#{$i} {
+			width: $i * .0625em;
+		}
+	}
+
+	&.fa-fw {
+		text-align: center;
+		width: (20em / 16);
+	}
+}
+
 
 li.flag a {
 	> img {

@@ -3,7 +3,7 @@ namespace app\assets;
 use Yii;
 
 class AppAsset extends \yii\web\AssetBundle {
-	public $sourcePath = '@app/assets/src/css';
+	public $sourcePath = '@runtime/assets/css';
 
 	public $css = [
 		'site.scss',
@@ -14,7 +14,7 @@ class AppAsset extends \yii\web\AssetBundle {
 
 	public $depends = [
  		'yii\web\YiiAsset',
-		'yii\bootstrap\BootstrapAsset',
+		'yii\bootstrap4\BootstrapAsset',
 	];
 
 	public $publishOptions = [

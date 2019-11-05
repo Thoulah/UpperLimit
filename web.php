@@ -18,16 +18,16 @@ $config = [
 		'view' => [
 			'theme' => [
 				'pathMap' => [
-					'@dektrium/user/views' => '@app/views/user'
+					'@Da/User/resources/views' => '@app/views/user'
 				],
 			],
 		],
 	],
 	'modules' => [
 		'user' => [
-			'class' => 'dektrium\user\Module',
-			'admins' => ['admin'],
-			'urlRules' => [
+			'class' => Da\User\Module::class,
+			'administrators' => ['admin'],
+			'routes' => [
 				'profile/<username:\w+>'					=> 'profile/show',
 				'recenttracks/<username:\w+>'				=> 'profile/recenttracks',
 				'<action:(login|logout)>'					=> 'security/<action>',
@@ -49,14 +49,5 @@ if (YII_DEBUG && in_array($_SERVER['REMOTE_ADDR'], $config['params']['specialIPs
 		'allowedIPs' => $config['params']['specialIPs'],
 	];
 }
-
-if (YII_ENV_DEV && in_array($_SERVER['REMOTE_ADDR'], $config['params']['specialIPs'])) {
-	$config['bootstrap'][] = 'gii';
-	$config['modules']['gii'] = [
-		'class' => 'yii\gii\Module',
-		'allowedIPs' => $config['params']['specialIPs'],
-	];
-} else
-	define('YII_ENV_DEV', false);
 
 return $config;

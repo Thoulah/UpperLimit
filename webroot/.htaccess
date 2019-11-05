@@ -1,0 +1,40 @@
+Options -Indexes -MultiViews +FollowSymlinks
+AddDefaultCharset UTF-8
+SetEnv TZ Europe/Berlin
+Header set Connection keep-alive
+
+<IfModule mod_rewrite.c>
+	RewriteEngine On
+	RewriteBase /
+
+	RewriteCond %{HTTP_HOST} ^[^.]+\.[^.]+$
+	RewriteRule ^(.*)$ %{REQUEST_SCHEME}://www.%{HTTP_HOST}/$1 [R=301,L]
+
+	RewriteCond %{REQUEST_FILENAME} !-f
+	RewriteCond %{REQUEST_FILENAME} !-d
+	RewriteRule . index.php
+
+	RewriteCond %{THE_REQUEST} ^GET.*index.php [NC]
+	RewriteRule (.*?)index.php/*(.*) /$1$2 [R=301,NE,L]
+</IfModule>
+
+# Caching
+FileETag All
+
+<IfModule mod_headers.c>
+	<FilesMatch "\.(ico)$">
+		Header set Cache-Control "max-age=900, private, must-revalidate"
+	</FilesMatch>
+
+	# Make sure proxies don't deliver the wrong content
+	Header append Vary User-Agent env=!dont-vary
+</IfModule>
+
+# Compression
+SetOutputFilter DEFLATE
+
+# Don't compress images
+SetEnvIfNoCase Request_URI .(?:jpe?g|png|gif)$ no-gzip dont-vary
+
+# Don't compress binaries
+SetEnvIfNoCase Request_URI .(?:exe|t?gz2?|zip|sit|rar)$ no-gzip dont-vary

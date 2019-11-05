@@ -1,0 +1,37 @@
+{
+    "name": "thoulah/upperlimit",
+    "description": "Upper Limit web project for personal use",
+    "type": "project",
+    "license": "GPL-3.0-only",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "platform": {
+            "php": "7.3.11"
+        }
+    },
+    "require": {
+        "php": ">=7.3.0",
+        "yiisoft/yii2": "~2.0.14",
+        "yiisoft/yii2-bootstrap4": "^2.0",
+        "yiisoft/yii2-swiftmailer": "~2.1.0",
+        "2amigos/yii2-usuario": "~1.0",
+        "codemix/yii2-localeurls": "^1.7",
+        "thoulah/yii2-fontawesome-inline": "^1.1"
+    },
+    "require-dev": {
+        "friendsofphp/php-cs-fixer": "~2.15.0",
+        "yiisoft/yii2-debug": "*"
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "upperlimit\\cs\\": "cs"
+        }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ]
+}

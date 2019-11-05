@@ -1,2 +1,5 @@
+/components/
+/vendor/
+/composer.lock
 /secrets.php
-/assets/src/css/site.css
+/composer.lock

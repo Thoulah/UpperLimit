@@ -1,5 +1,5 @@
 <?php
-use yii\bootstrap\{Alert, Html};
+use yii\bootstrap4\{Alert, Html};
 
 $this->title = $name;
 

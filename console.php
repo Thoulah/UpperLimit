@@ -1,11 +1,13 @@
 <?php
 $config = [
 	'id' => 'mr42-console',
+	'aliases' => [
+		'@web' => 'https://www.upperlimit.eu/',
+	],
+
 	'controllerNamespace' => 'app\commands',
 	'modules' => [
-		'user' => [
-			'class' => 'dektrium\user\Module',
-		],
+		'user' =>  Da\User\Module::class,
 	],
 ];
 
